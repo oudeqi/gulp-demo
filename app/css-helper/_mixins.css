@@ -99,7 +99,7 @@
     -moz-text-align-last: justify;
     -webkit-text-align-last: justify;
     @mixin-content;
-    &:after{
+    &:after {
         content: "";
         width: 100%;
         display: inline-block;
