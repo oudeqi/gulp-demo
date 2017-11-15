@@ -1,0 +1,17 @@
+/*全局字体响应*/
+@define-extend font_responsive { 
+	font-size: responsive;
+	lower-font-range: $min_width;
+	upper-font-range: $max_width;
+	min-font-size: 14px;
+	max-font-size: 18px;
+}
+
+@define-extend layout_responsive { 
+	font-size: responsive;
+	upper-font-range: $max_width;
+	lower-font-range: $min_width;
+	max-font-size: 100px;
+	min-font-size: calc(100px * 1024 / 1920);
+}
+

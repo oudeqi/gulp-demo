@@ -1,0 +1,36 @@
+@import "../css-helper/_mixins.css";
+@import "../css-helper/common.css";
+
+@mixin always-bottom layout, layout-footer, footer, 50px {
+    background: #333;
+}
+
+@mixin portrait {
+    .footer{
+        background: pink;
+    }
+}
+
+@mixin landscape {
+    .footer{
+        background: blue;
+    }
+}
+
+@mixin content-scroll content-scroll, 10px{
+    height: 200px;
+    border: 1px solid #ddd;
+
+}
+
+.text-align-last {
+    @mixin text-align-last 300px{
+        border: 1px solid red;
+    }
+}
+
+.aspect-box{
+    @mixin aspect-box aspect-box-content, 2, 1{
+        background: skyblue;
+    }
+}

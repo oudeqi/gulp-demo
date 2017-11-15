@@ -1,0 +1,60 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body{
+    height: 100%;
+}
+
+/*html{*/
+    /*-ms-touch-action: none;*/
+    /*winphone下默认触摸事件事件使用 e.preventDefault是无效的.目前解决方法是使用样式来禁用 */
+/*}*/
+
+body{
+    font-family: Helvetica "Microsoft Yahei" sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /*禁止ios和android用户选中文字*/
+    /*-webkit-user-select: none;*/
+    /*禁止ios长按时触发系统的菜单，禁止ios&android长按时下载图片*/
+    /*-webkit-touch-callout: none;*/
+    /*-ms-text-size-adjust: 100% !important;*/
+    /*ios使用-webkit-text-size-adjust禁止调整字体大小*/
+    /*-webkit-text-size-adjust: 100% !important;*/
+}
+
+a{
+    text-decoration: none;
+}
+
+ol, ul{
+    list-style: none;
+}
+
+a, button, input, textarea, select{
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-appearance: none;
+    font-size: 100%;
+}
+
+.hide{
+    display: none;
+}
+
+.abs-hide{
+    display: none !important;
+}
+
+.clearfix:before, .clearfix:after{
+    content: "";
+    display: table;
+}
+
+.clearfix:after{
+    clear: both;
+    overflow: hidden;
+}
