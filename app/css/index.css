@@ -30,7 +30,7 @@
 }
 
 .aspect-box{
-    @mixin aspect-box aspect-box-content, 2, 1{
+    @mixin aspect-box aspect-box-content, 2, 1 {
         background: skyblue;
     }
 }

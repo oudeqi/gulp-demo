@@ -1,59 +1,124 @@
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+html{
+    /*winphone下默认触摸事件事件使用 e.preventDefault是无效的
+    目前解决方法是使用样式来禁用 */
+    -ms-touch-action: none;
+}
+
+body{
+    font-family: Helvetica "Microsoft Yahei" sans-serif;
+    background-color: #fff;
+    /*字体看起来会更清晰平滑*/
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /*禁止ios和android用户选中文字*/
+    -webkit-user-select: none;
+    /*禁止ios长按时触发系统的菜单，禁止ios&android长按时下载图片*/
+    -webkit-touch-callout: none;
+    /*禁止调整字体大小*/
+    -webkit-text-size-adjust: 100% !important;
+    -ms-text-size-adjust: 100% !important;
+}
+
+/*如果需要body满屏高*/
 html, body{
     height: 100%;
 }
 
-/*html{*/
-    /*-ms-touch-action: none;*/
-    /*winphone下默认触摸事件事件使用 e.preventDefault是无效的.目前解决方法是使用样式来禁用 */
-/*}*/
-
-body{
-    font-family: Helvetica "Microsoft Yahei" sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    /*禁止ios和android用户选中文字*/
-    /*-webkit-user-select: none;*/
-    /*禁止ios长按时触发系统的菜单，禁止ios&android长按时下载图片*/
-    /*-webkit-touch-callout: none;*/
-    /*-ms-text-size-adjust: 100% !important;*/
-    /*ios使用-webkit-text-size-adjust禁止调整字体大小*/
-    /*-webkit-text-size-adjust: 100% !important;*/
-}
-
 a{
     text-decoration: none;
+    /*去掉ios系统中元素被触摸时产生的半透明灰色遮罩*/
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 ol, ul{
     list-style: none;
 }
 
-a, button, input, textarea, select{
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    -webkit-appearance: none;
-    font-size: 100%;
+table {
+    border-collapse: collapse;
 }
 
-.hide{
+button, input, textarea, select{
+    font-size: inherit;
+    font-family: inherit;
+    background-color: inherit;
+    /*重置webkit表单元素的默认外观*/
+    -webkit-appearance: none;
+    /*去掉ios系统中元素被触摸时产生的半透明灰色遮罩*/
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+/*禁用 select 默认下拉箭头*/
+/*::-ms-expand 适用于表单选择控件下拉箭头的修改，
+有多个属性值，设置它隐藏 (display:none) 
+并使用背景图片来修饰可得到我们想要的效果。*/
+select::-ms-expand {
     display: none;
 }
 
+/*禁用 radio 和 checkbox 默认样式*/
+/*::-ms-check 适用于表单复选框或单选按钮默认图标的修改，
+同样有多个属性值，设置它隐藏 (display:none) 
+并使用背景图片来修饰可得到我们想要的效果。*/
+input[type=radio]::-ms-check,
+input[type=checkbox]::-ms-check{
+    display: none;
+}
+
+/*禁用PC端表单输入框默认清除按钮*/
+/*当表单文本输入框输入内容后会显示文本清除按钮，
+::-ms-clear 适用于该清除按钮的修改，同样设置使它隐藏 (display:none) 
+并使用背景图片来修饰可得到我们想要的效果*/
+input[type=text]::-ms-clear,
+input[type=tel]::-ms-clear,
+input[type=number]::-ms-clear{
+    display: none;
+}
+
+/*改变表单输入框placeholder的颜色值*/
+/*表单输入框placeholder的文字能换行么?
+ios可以，android不行~在textarea标签下都可以换行*/
+input:-moz-placeholder,   
+input:-ms-input-placeholder,   
+input::-webkit-input-placeholder, 
+textarea:-moz-placeholder,
+textarea:-ms-input-placeholder,   
+textarea::-webkit-input-placeholder{
+    color:#aaa;
+}
+input:focus:-moz-placeholder,   
+input:focus:-ms-input-placeholder,   
+input:focus::-webkit-input-placeholder, 
+textarea:focus:-moz-placeholder,
+textarea:focus:-ms-input-placeholder,   
+textarea:focus::-webkit-input-placeholder{
+    color:#eee;
+}
+
+/*android 上去掉语音输入按钮*/
+input::-webkit-input-speech-button {
+    display: none
+}
+
+/*隐藏原素*/
+.hide{
+    display: none;
+}
 .abs-hide{
     display: none !important;
 }
 
+/*清除浮动*/
 .clearfix:before, .clearfix:after{
     content: "";
     display: table;
 }
-
 .clearfix:after{
     clear: both;
     overflow: hidden;
