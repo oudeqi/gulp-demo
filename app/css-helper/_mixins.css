@@ -106,7 +106,7 @@
     }
 }
 
-/*长宽比效果*/
+/*长宽比效果-配合postcss-calc插件*/
 @define-mixin aspect-box $aspect-box-content, $rw:16, $rh:9{
     position: relative;
     &::before {

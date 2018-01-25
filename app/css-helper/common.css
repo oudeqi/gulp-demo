@@ -127,3 +127,34 @@ input::-webkit-input-speech-button {
     clear: both;
     overflow: hidden;
 }
+
+/*
+1. 长宽比效果-用于postcss-aspect-ratio-mini插件
+2. 默认的结构：
+<div aspectratio w-9-16>
+    <div aspectratio-content></div>
+</div>
+3. 使用：aspect-ratio属性不能和其他属性写在一起，否则编译出来的属性只会留下aspect-ratio的值
+[w-9-16] {    
+    aspect-ratio: '9:16';
+}
+*/
+[aspectratio] {
+    position: relative;
+}
+[aspectratio]::before {
+    content: '';
+    display: block;
+    width: 1px;
+    margin-left: -1px;
+    height: 0;
+}
+[aspectratio-content] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+}
